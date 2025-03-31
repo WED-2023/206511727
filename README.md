@@ -11,7 +11,6 @@ Additionally, the site features a "Like" button and a contact page for sending m
 ## Main Files:
 - **index.html**: The main page of the website.  
 - **style.css**: The website's design and styling.  
-- **script.js**: JavaScript for managing interactions and functions.  
 - **images/**: Folder containing images used in the website.  
 
 ## Technologies Used:
