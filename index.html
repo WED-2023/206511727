@@ -1,8 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css" />
   <meta charset="UTF-8">
+  <title>Bon Jovi's website</title>
+  <style>
+    body {
+        direction: rtl;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    #menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #4267B2;
+        padding: 10px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+    #menu ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+    #menu li {
+        display: inline;
+    }
+    #menu a {
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+        padding: 20px 15px;
+        border-radius: 5px;
+        transition: background-color 0.7s;
+    }
+
+    #menu a:hover {
+        background-color: #365899;
+    }
+
+    #menu a.active {
+        background-color: #22427a;
+    }
+
+    .content {
+        padding-top: 60px;
+    }
+</style>
   <style>
     .like-button {
         background-color: white;
@@ -25,16 +76,121 @@
         color: white;
     }
   </style>
+  <style>
+    body {
+        direction: rtl;
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+
+    h2 {
+        color: #4267B2;
+    }
+
+    ul {
+        margin: 10px 0;
+        padding-left: 20px;
+    }
+
+    li {
+        margin: 5px 0;
+    }
+</style>
+<style>
+  body {
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      margin: 20px;
+  }
+
+  form {
+      max-width: 400px;
+      padding: 29px;
+      border: 2px solid #4267B2;
+      border-radius: 8px;
+      background-color: #f2f2f2;
+  }
+
+  label {
+      font-size: 18px;
+  }
+
+  input, textarea, select, button {
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+  }
+
+  input {
+      width: 95%;
+  } 
+
+  textarea {
+      width: 95%;
+      resize: none;
+  }
+
+  button {
+      background-color: #4267B2;
+      color: white;
+      cursor: pointer;
+  }
+
+  button:hover {
+      background-color: #365899;
+  }
+</style>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        console.log("Initializing EmailJS...");
+        emailjs.init("5f-ak__lF9rasjNii");
+    })();
+
+    function sendMessage() {
+        console.log("Sending message...");
+
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        const smiley = document.getElementById('smiley').value;
+        const finalMessage = message + " " + smiley;
+
+        console.log("Collected data:");
+        console.log("Email: " + email);
+        console.log("Message: " + finalMessage);
+
+        const templateParams = {
+            from_name: email,
+            to_email: "yehonatan.yamin1@gmail.com",
+            message: finalMessage
+        };
+
+        console.log("Template parameters prepared:");
+        console.log(templateParams);
+
+        emailjs.send("service_35ph4t8", "template_p3yk19u", templateParams)
+            .then(function(response) {
+                console.log("Success:", response);
+                alert("ההודעה נשלחה בהצלחה!");
+            }, function(error) {
+                console.error("Error:", error);
+                alert("חלה שגיאה בשליחת ההודעה: " + JSON.stringify(error));
+            });
+    }
+</script>
 </head>
 <body>
 <div id="menu">
-<li><a href="#about">About Me</a></li>
-<li><a href="#photos">My Photos</a></li>
-<li><a href="#playlist">My Playlist</a></li>
-<li><a href="#like">Like</a></li>
-<li><a href="#qrcoder">QR code</a></li>
-<li><a href="#spa">Q&A</a></li>
-<li><a href="#contact">Contact Me</a></li>
+<li><a href="#about">אודות</a></li>
+<li><a href="#photos">תמונות</a></li>
+<li><a href="#playlist">שיר אהוב</a></li>
+<li><a href="#like">פרגנו לנו!</a></li>
+<li><a href="#qrcoder">קוד QR</a></li>
+<li><a href="#spa">תשובות ושאלות</a></li>
+<li><a href="#contact">יצירת קשר</a></li>
 
 </div>
 		  
@@ -42,52 +198,28 @@
 <br/>
 <br/>
 <br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<h1>about:</h1>
-<b>Bon Jovi</b> is an American rock band formed in 1983, led by Jon Bon Jovi.<br/>
-Known for hits like "Livin' on a Prayer" and "You Give Love a Bad Name,"<br/>
-they became one of the best-selling rock bands of all time.<br/>
-Jon Bon Jovi, inspired by Bruce Springsteen, is not only a musician but also a philanthropist,<br/>
-supporting homeless and poverty causes through the Jon Bon Jovi Soul Foundation.<br/>
-His passion for storytelling and community service defines both his music and personal life.<br/>
-<br/>
+<h1>אודות:</h1>
+בון ג'ובי היא להקת רוק אמריקאית שהוקמה בשנת 1983 בהובלת ג'ון בון ג'ובי.<br/>
+הלהקה ידועה בלהיטים כמו "Livin' on a Prayer" ו-"You Give Love a Bad Name",<br/>
+והפכה לאחת מלהקות הרוק הנמכרות ביותר בכל הזמנים.<br/>
+ג'ון בון ג'ובי, שהושפע מברוס ספרינגסטין, הוא לא רק מוזיקאי אלא גם פילנתרופ,<br/>
+תומך במאבק בחסרי בית ובעוני באמצעות קרן "Jon Bon Jovi Soul Foundation".<br/>
+התשוקה שלו לסיפורי חיים ושירות קהילתי מגדירה גם את המוזיקה שלו וגם את חייו האישיים.<br/>
 <br/>
 <br/>
 </section>
 
 <section id="photos" class="section">
 <br/>
-photos:
+תמונות:
 <br/>
-<img src="bon_jovi_evolotion.jpg" width="500" /><img/>
+<img src="bon_jovi_evolotion.jpg" width="500" />
 <br/>
 <br/>
 <br/>
-With family:
+משפחה:
 <br/>
 <img src="with_family.jpg" width="500" /><img/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
 <br/>
 </section>
 
@@ -99,7 +231,7 @@ With family:
 <br/>
 <br/>
 <br/>
- Bon Jovi's favorit song:
+ שיר אהוב על ג'ון בון ג'ובי
 <br/>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JJaRLTahvcQ?si=MJrnUaR6bF7rhfHk"
  title="YouTube video player" 
@@ -114,11 +246,7 @@ With family:
 <br/>
 <br/>
 <br/>
-<br/>
-<br/>
-<br/>
-<br/>
-give me a like
+אהבתם את העמוד"? פרגנו בלייק!
 <br/>
 <button id="like-button" class="like-button" onclick="toggleLike()">👍 Like</button>
     <div class="like-count" id="like-count">Likes: 0</div>
@@ -172,23 +300,10 @@ give me a like
 
 <section id="qrcoder" class="section">
 <br/>
+
+לאתר, סרקו את הקוד.
 <br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-scan my code
-<br/>
+<img src="Bon Jovi website_qrcode.png" alt="QR code for Bon Jovi website" width="350">
 <br/>
 <br/>
 </section>
@@ -198,43 +313,149 @@ scan my code
 <br/>
 <br/>
 <br/>
+תשובות לשאלות
+<br/>
+<h2>שלושת ההבדלים העיקריים בין Web 1.0, Web 2.0 ו-Web 3.0</h2>
+
+<h3>1. טבע התוכן והאינטראקציה:</h3>
+<ul>
+    <li><strong>Web 1.0 (רשת סטטית):</strong>
+        <ul>
+            <li>התוכן הוא סטטי וקריאה בלבד.</li>
+            <li>משתמשים יכולים רק לצרוך מידע ללא אינטראקציה.</li>
+            <li>דוגמאות: אתרי אינטרנט אישיים, דפי HTML סטטיים.</li>
+        </ul>
+    </li>
+    <li><strong>Web 2.0 (רשת חברתית):</strong>
+        <ul>
+            <li>התוכן הוא דינמי ואינטראקטיבי.</li>
+            <li>משתמשים יכולים ליצור, לשתף ולהגיב על תוכן.</li>
+            <li>דוגמאות: רשתות חברתיות (פייסבוק, יוטיוב), בלוגים, וויקי.</li>
+        </ul>
+    </li>
+    <li><strong>Web 3.0 (רשת סמנטית/מבוזרת):</strong>
+        <ul>
+            <li>התוכן מותאם אישית, אינטליגנטי ומבוזר.</li>
+            <li>למשתמשים שליטה רבה יותר על הנתונים ואינטראקציה עם יישומים מבוססי בינה מלאכותית.</li>
+            <li>דוגמאות: פלטפורמות מבוססות בלוקצ'יין, אפליקציות מבוזרות (DApps).</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>2. בעלות ושליטה על נתונים:</h3>
+<ul>
+    <li><strong>Web 1.0:</strong> 
+        <ul>
+            <li>הנתונים מאוחסנים בשרתים מרכזיים השייכים לאתרים פרטיים.</li>
+            <li>למשתמשים אין שליטה על הנתונים.</li>
+        </ul>
+    </li>
+    <li><strong>Web 2.0:</strong>
+        <ul>
+            <li>הנתונים עדיין מרוכזים, אך המשתמשים תורמים בצורה משמעותית (רשתות חברתיות, פלטפורמות תוכן).</li>
+            <li>הנתונים לרוב בבעלות ספקי הפלטפורמה.</li>
+        </ul>
+    </li>
+    <li><strong>Web 3.0:</strong>
+        <ul>
+            <li>הנתונים מבוזרים ונשלטים על ידי המשתמשים דרך בלוקצ'יין ורשתות עמית לעמית.</li>
+            <li>המשתמשים הם בעלי הנתונים ויכולים להחליט מי יקבל גישה.</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>3. טכנולוגיה ומבנה:</h3>
+<ul>
+    <li><strong>Web 1.0:</strong>
+        <ul>
+            <li>מבוסס על HTML, דפים סטטיים וקישורים בסיסיים.</li>
+            <li>מוגבל באינטראקטיביות ואין תוכן שנוצר על ידי משתמשים.</li>
+        </ul>
+    </li>
+    <li><strong>Web 2.0:</strong>
+        <ul>
+            <li>משתמש ב-HTML5, CSS3, AJAX ומסגרות אינטראקטיביות (כמו React, Angular).</li>
+            <li>תומך ברשתות חברתיות, אינטראקציה עם משתמשים ו-APIs.</li>
+        </ul>
+    </li>
+    <li><strong>Web 3.0:</strong>
+        <ul>
+            <li>מבוסס על בלוקצ'יין, AI, למידת מכונה ונתונים סמנטיים.</li>
+            <li>מאפשר חוזים חכמים, אפליקציות מבוזרות וחוויות מותאמות אישית.</li>
+        </ul>
+    </li>
+</ul>
 <br/>
 <br/>
+<h2>תרחישי שימושי עבור כל Web</h2>
 <br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-ans
-<br/>
-<br/>
-<br/>
+<li><strong>Web 1.0:</strong></li>
+  <ul>מציאת אתרים סטטיים המציגים תכניים כלליים ומתעדכנים לעיתים מאוד רחוקות, ללא אפשרות אינטרקציה עם העמוד.</ul>
+<li><strong>Web 2.0:</strong></li>
+  <ul>המשתמש כותב או קורא תגובה של אנשים אחרים בעמוד.</ul>
+<li><strong>Web 3.0:</strong></li>
+  <ul>מנוע החיפוש מעבד את השאלה בודק/סורק את האינטרנט ואת מסד הנתונים ומחזיר תשובה מותאמת למשתמש.</ul>
+
+
+
 </section>
 
 <section id="contact" class="section">
 <br/>
 <br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-contact me
-<br/>
+<h2>טופס יצירת קשר</h2>
+    <form id="contactForm" onsubmit="sendMessage(); return false;">
+        <label for="email">האימייל שלך:</label>
+        <input type="email" id="email" placeholder="הכנס כתובת אימייל" required>
+
+        <label for="message">תוכן ההודעה:</label>
+        <textarea id="message" placeholder="הכנס את ההודעה שלך" rows="5" required></textarea>
+
+        <label for="smiley">הוסף סמיילי:</label>
+        <select id="smiley">
+            <option value="">ללא</option>
+            <option value="😊">😊</option>
+            <option value="😢">😢</option>
+            <option value="😡">😡</option>
+            <option value="😎">😎</option>
+            <option value="❤️">❤️</option>
+        </select>
+
+        <button type="submit">שלח</button>
+    </form>
+
+    <script>
+      function sendMessage() {
+    console.log("Button clicked - sending message...");
+
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    const smiley = document.getElementById('smiley').value;
+    const finalMessage = message + " " + smiley;
+
+    console.log("Collected data:");
+    console.log("Email: " + email);
+    console.log("Message: " + finalMessage);
+
+    const templateParams = {
+        name: email,
+        to_email: "yehonatan.yamin1@gmail.com",
+        message: finalMessage
+    };
+
+    console.log("Template parameters prepared:");
+    console.log(templateParams);
+
+    emailjs.send("service_35ph4t8", "template_p3yk19u", templateParams)
+        .then(function(response) {
+            console.log("Success:", response);
+            alert("ההודעה נשלחה בהצלחה!");
+        }, function(error) {
+            console.error("Error:", error);
+            alert("חלה שגיאה בשליחת ההודעה: " + JSON.stringify(error));
+        });
+}
+  </script>
 <br/>
 <br/>
 </section>
@@ -250,8 +471,8 @@ $(function(){
 </script>
 <script type="text/javascript">
  $(document).scroll(function() {
-    $('#menu').toggle($(this).scrollTop()>1000)
- });​
+    $('#menu').toggle($(this).scrollTop()>-100)
+ });
  </script>
 </body>
 </html>
