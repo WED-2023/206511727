@@ -18,9 +18,10 @@
         left: 0;
         width: 100%;
         background-color: #4267B2;
-        padding: 10px 0;
+        padding: 23px 0;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 1000;
+        text-align: center;
     }
     #menu ul {
         list-style-type: none;
@@ -35,19 +36,18 @@
     }
     #menu a {
         text-decoration: none;
-        color: white;
-        font-size: 20px;
-        padding: 20px 15px;
+        color: rgb(255, 255, 255);
+        font-size: 23px;
+        padding: 15px 22px;
         border-radius: 5px;
-        transition: background-color 0.7s;
     }
 
     #menu a:hover {
-        background-color: #365899;
+        color: rgb(192, 192, 192);
     }
 
     #menu a.active {
-        background-color: #22427a;
+        background-color: #4267B2;
     }
 
     .content {
@@ -106,7 +106,8 @@
   }
 
   form {
-      max-width: 400px;
+      max-width: 500px;
+      max-height: 600px;
       padding: 29px;
       border: 2px solid #4267B2;
       border-radius: 8px;
@@ -121,7 +122,7 @@
       width: 100%;
       margin: 8px 0;
       padding: 10px;
-      font-size: 16px;
+      font-size: 20px;
       border-radius: 5px;
       border: 1px solid #ccc;
   }
@@ -185,6 +186,7 @@
 </script>
 </head>
 <body>
+
 <div id="menu">
 <li><a href="#about">אודות</a></li>
 <li><a href="#photos">תמונות</a></li>
@@ -193,18 +195,11 @@
 <li><a href="#qrcoder">קוד QR</a></li>
 <li><a href="#spa">תשובות ושאלות</a></li>
 <li><a href="#contact">יצירת קשר</a></li>
-
 </div>
-
-<div class="centered-title">
-  ברוכים הבאים לאתר המעריצים של ג'ון בון ג'ובי
-</div>
-
 <section id="about" class="section">
-<br/>
-<br/>
-<br/>
-<br/>
+<div class="centered-title">
+    ברוכים הבאים לאתר המעריצים של ג'ון בון ג'ובי
+</div>
 <br><br><br><br><br>
 <br><br><br><br>
 <br><br><br>
@@ -215,11 +210,12 @@
 ג'ון בון ג'ובי, שהושפע מברוס ספרינגסטין, הוא לא רק מוזיקאי אלא גם פילנתרופ,<br/>
 תומך במאבק בחסרי בית ובעוני באמצעות קרן "Jon Bon Jovi Soul Foundation".<br/>
 התשוקה שלו לסיפורי חיים ושירות קהילתי מגדירה גם את המוזיקה שלו וגם את חייו האישיים.<br/>
-<br/>
-<br/>
 </section>
 
 <section id="photos" class="section">
+<br/>
+<br/>
+<br/>
 <br/>
 <h1>תמונות:</h1>
 <img src="images/bon_jovi_evolotion.jpg" width="500" />
@@ -254,24 +250,23 @@
 <br/>
 <br/>
 <br/>
+<br/>
+<br/>
+<br/>
 <h1>אהבתם את העמוד? פרגנו בלייק!</h1>
 <br/>
 <button id="like-button" class="like-button" onclick="toggleLike()">👍 Like</button>
-    <div class="like-count" id="like-count">Likes: 0</div>
 
     <script>
         // Initialize likes and state from local storage
 
-        let likeCount = localStorage.getItem('likeCount') ? parseInt(localStorage.getItem('likeCount')) : 0;
         let isLiked = localStorage.getItem('isLiked') === 'true';
         
 
         // Update the button and count on page load
         const likeButton = document.getElementById('like-button');
-        const likeCountDisplay = document.getElementById('like-count');
         
         function updateLikeDisplay() {
-            likeCountDisplay.innerText = `Likes: ${likeCount}`;
             if (isLiked) {
                 likeButton.classList.add('liked');
                 likeButton.innerText = "👍 Liked";
@@ -287,15 +282,7 @@
             // Toggle like state
             isLiked = !isLiked;
 
-            // Update like count based on state
-            if (isLiked) {
-                likeCount++;
-            } else {
-                likeCount--;
-            }
-
             // Save state to local storage
-            localStorage.setItem('likeCount', likeCount);
             localStorage.setItem('isLiked', isLiked);
 
             // Update the display
@@ -309,6 +296,7 @@
 <section id="qrcoder" class="section">
 <br/>
 <br>
+<br/>
 <h1>לאתר, סרקו את הקוד.</h1>
 <img src="images/Bon Jovi website_qrcode.png" alt="QR code for Bon Jovi website" width="350">
 <br/>
@@ -317,6 +305,7 @@
 
 <section id="spa" class="section">
 
+<br/>
 <br/>
 <br/>
 <h1>תשובות לשאלות</h1>
