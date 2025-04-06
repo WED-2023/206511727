@@ -42,16 +42,6 @@
         border-radius: 5px;
     }
 
-    #menu a:hover,
-    #menu a:active,
-    #menu a:focus {
-    color: rgb(192, 192, 192);
-}
-
-    #menu a {
-    transition: color 0.5s ease;
-    color: rgb(255, 255, 255);
-}
 
     #menu a.active {
         background-color: #4267B2;
@@ -75,12 +65,7 @@
         padding-left: 0.8%;
     }
     
-
-    .like-button:hover,
-    .like-button:active {
-    background-color: rgb(170, 170, 170);
-    }
-
+    
     .liked {
         background-color: #4267B2;
         color: white;
@@ -280,11 +265,9 @@
             if (isLiked) {
                 likeButton.classList.add('liked');
                 likeButton.innerText = "👍 Liked";
-                likeButton.style.background = white;
             } else {
                 likeButton.classList.remove('liked');
                 likeButton.innerText = "👍 Like";
-                likeButton.style.background = white;
             }
         }
 
