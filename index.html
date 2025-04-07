@@ -65,7 +65,7 @@
         padding-left: 0.8%;
     }
     
-    
+
     .liked {
         background-color: #4267B2;
         color: white;
@@ -136,11 +136,8 @@
       color: white;
       cursor: pointer;
   }
-
-  button:hover {
-      background-color: #365899;
-  }
 </style>
+
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script type="text/javascript">
     (function() {
@@ -264,10 +261,10 @@
         function updateLikeDisplay() {
             if (isLiked) {
                 likeButton.classList.add('liked');
-                likeButton.innerText = "👍 Liked";
+                likeButton.innerText = "Thank you for your like👍, to cancel your like press again";
             } else {
                 likeButton.classList.remove('liked');
-                likeButton.innerText = "👍 Like";
+                likeButton.innerText = "👍 Click to like";
             }
         }
 
@@ -387,6 +384,7 @@
 </section>
 
 <section id="contact" class="section">
+<br/>
 <br/>
 <br/>
 <h1>טופס יצירת קשר</h1>
