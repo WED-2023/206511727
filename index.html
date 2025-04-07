@@ -434,9 +434,14 @@
         .then(function(response) {
             console.log("Success:", response);
             alert("ההודעה נשלחה בהצלחה!");
+            setTimeout(() => {location.reload();}, 1000);
+            window.scrollTo(0, 0);
         }, function(error) {
             console.error("Error:", error);
-            alert("חלה שגיאה בשליחת ההודעה: " + JSON.stringify(error));
+            alert("חלה שגיאה בשליחת ההודעה, נסה שוב מאוחר יותר: " + JSON.stringify(error));
+            setTimeout(() => {location.reload();}, 1000);
+            window.scrollTo(0, 0);
+
         });
 }
   </script>
