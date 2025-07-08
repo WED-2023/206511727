@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vocabulary Quiz</title>
+    <script src="words.js" defer></script>
+    <script src="quiz.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            text-align: center;
+            padding: 50px 20px;
+            color: #333;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        #mode-selection, #quiz {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .option {
+            margin: 10px;
+            padding: 12px 20px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .option:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.05);
+        }
+        .correct {
+            background-color: #c8e6c9 !important;
+        }
+        .wrong {
+            background-color: #ffcdd2 !important;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #score {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vocabulary Quiz</h1>
+    <div id="mode-selection">
+        <p><strong>בחר כיוון תרגול:</strong></p>
+        <button onclick="startQuiz('en-to-he')">אנגלית → עברית</button>
+        <button onclick="startQuiz('he-to-en')">עברית → אנגלית</button>
+    </div>
+    <div id="quiz" style="display:none;">
+        <div id="question" style="font-size: 22px; margin-bottom: 20px;"></div>
+        <div id="options"></div>
+        <div id="score">Score: 0 / 0</div>
+        <button onclick="nextQuestion()">Next</button>
+    </div>
+</body>
+</html>
