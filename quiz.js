@@ -23,11 +23,11 @@ function nextQuestion() {
     let questionText, correctAnswer, wrongAnswers;
 
     if (mode === "en-to-he") {
-        questionText = `What is the meaning of "${currentWord.english}" in Hebrew?`;
+        questionText = `${currentWord.english}`;
         correctAnswer = currentWord.hebrew;
         wrongAnswers = shuffle(words.filter(w => w !== currentWord)).slice(0, 3).map(w => w.hebrew);
     } else {
-        questionText = `מה התרגום של "${currentWord.hebrew}" לאנגלית?`;
+        questionText = `${currentWord.hebrew}`;
         correctAnswer = currentWord.english;
         wrongAnswers = shuffle(words.filter(w => w !== currentWord)).slice(0, 3).map(w => w.english);
     }
